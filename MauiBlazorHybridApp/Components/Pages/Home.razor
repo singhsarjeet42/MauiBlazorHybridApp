@@ -1,0 +1,17 @@
+﻿@page "/"
+@using MauiBlazorHybridApp.ViewModel
+@using MauiBlazorHybridApp.Shared;
+
+@inherits MvvmComponentBase<UserViewModel>
+<h1>MVVM Data Binding and Command trigger</h1>
+@if (@userViewModel.IsActive)
+{
+    <MudAlert> Welcome : @userViewModel.Name</MudAlert>
+}
+<MudButton OnClick="@userViewModel.buttonClickCommand">Show Me</MudButton>
+<MudButton OnClick="@userViewModel.getData"> Get Name</MudButton>
+<MudButton OnClick="@userViewModel.Clear"> Clear</MudButton>
+@code{
+    UserViewModel userViewModel = new UserViewModel();
+}
+
